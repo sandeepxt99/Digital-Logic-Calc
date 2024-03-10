@@ -1,0 +1,153 @@
+@media only screen and (max-width: 768px) {
+  .nav-list {
+    display: none;
+  }
+
+  .nav-list ul {
+    background-color: #9f70fd;
+    padding: 30px 7vw;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    z-index: 2;
+  }
+
+  .follow-list {
+    flex-direction: column;
+    /* display: flex; */
+    left: 20px;
+  }
+
+  #ham-container {
+    display: block;
+  }
+
+  /* header styling done */
+
+  /* left sectiong start */
+
+  .options-container {
+    top: 20px;
+    left: 0;
+    width: 100%;
+  }
+
+  .options-inner-container {
+    overflow-x: auto;
+    width: 100%;
+    flex-direction: row;
+    left: 0px;
+    padding-left: 7vw;
+    /* scrollbar-width: none; */
+  }
+
+  .options-inner-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .options-container button {
+    padding: 2px 12px;
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+  }
+
+  #main-container {
+    flex-direction: column;
+  }
+
+  /* calculation style start */
+
+  .calculation-container-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  #swap-calculation {
+    rotate: 90deg;
+    align-self: center;
+    padding: 15px;
+  }
+
+  .answer-explanation-container {
+    padding: 0px 7vw;
+    left: 0%;
+    width: 100%;
+  }
+
+  .keyboard-each-row {
+    padding: 0px 10px;
+    top: 0px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .calculation-container-2 button {
+    padding: 5px 10px;
+  }
+
+  .simplify-btn-container {
+    flex-direction: column;
+    gap: 2px;
+    align-items: normal !important;
+  }
+
+  .calculation-btn-container button,
+  .complement-btn-container button {
+    margin: 5px 0;
+  }
+}
+
+/* media for max width 340  */
+
+@media only screen and (max-width: 340px) {
+  .complement-btn-container > input {
+    width: 50px !important;
+  }
+
+  .complement-btn-container button,
+  .floating-btn-container button {
+    padding: 5px 10px;
+  }
+
+  .select-container {
+    font-size: 10px;
+    width: 100px;
+    height: 40px;
+  }
+  .keyboard-each-row {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .simplify-btn-container button {
+    /* padding: 5px 10px; */
+    height: 50px;
+  }
+
+  .floating-btn-container {
+    flex-direction: column;
+  }
+
+  .floating-btn-container {
+    align-items: flex-start;
+  }
+
+  .simplify-btn-container {
+    gap: 2px;
+    align-items: center;
+  }
+
+  .custom-select-values {
+    left: 0px;
+  }
+  .keyboard-each-row {
+    left: 0px;
+    width: 100%;
+  }
+}

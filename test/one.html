@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" href="test.style.css" /> -->
+  <title>Document</title>
+
+  <style>
+    #keyboard {
+      /* height: 200px; */
+      width: 100%;
+      background-color: #7b5ce0;
+      user-select: none;
+      font-weight: 200;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      display: none;
+    }
+
+    #upper-container .upper-sec,
+    #alphabatic-container .alphabatic-sec,
+    #spacial-char-container .spacial-char-sec,
+    #spacial-btn-container .spacial-btn-sec {
+      display: flex;
+      justify-content: space-evenly;
+      min-width: 100%;
+      /* transition: transform 150ms ease-in; */
+    }
+
+    #upper-container,
+    #alphabatic-container,
+    #spacial-char-container,
+    #spacial-btn-container {
+      display: flex;
+      /* justify-content: space-evenly; */
+      align-items: center;
+      padding: 10px 0px;
+      overflow-x: hidden;
+    }
+
+    #lower-container {
+      /* height: 50px; */
+      width: 100%;
+      background-color: #f7941d;
+    }
+
+    #node {
+      display: none;
+    }
+
+    .text-transform {
+      text-transform: lowercase;
+    }
+
+    .keyboard-focus {
+      display: block !important;
+    }
+
+    #input-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0px;
+    }
+
+    #input-container .input {
+      width: 60%;
+      height: 40px;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 5px 10px;
+      overflow-y: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .input p {
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+
+    .input p::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media screen and (min-width: 300px) {
+      #keyboard svg {
+        height: 55px;
+        width: 55px;
+      }
+    }
+
+    @media screen and (min-width: 500px) {
+      #keyboard {
+        width: 70%;
+      }
+    }
+
+    @media screen and (min-width: 700px) {
+      #keyboard {
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="keyboard">
+    <div id="upper-container">
+      <div class="upper-sec" id="upper-sec-1">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            0
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            1
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            2
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            3
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            4
+          </text>
+        </svg>
+      </div>
+      <div class="upper-sec" id="upper-sec-2">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            5
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            6
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            7
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            8
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            9
+          </text>
+        </svg>
+      </div>
+    </div>
+    <div id="mid-container">
+      <div id="alphabatic-container">
+        <div class="alphabatic-sec" id="alphabatic-sec-1"></div>
+        <div class="alphabatic-sec" id="alphabatic-sec-2"></div>
+        <div class="alphabatic-sec" id="alphabatic-sec-3"></div>
+        <div class="alphabatic-sec" id="alphabatic-sec-4"></div>
+        <div class="alphabatic-sec" id="alphabatic-sec-5"></div>
+        <div class="alphabatic-sec" id="alphabatic-sec-6"></div>
+      </div>
+      <div id="spacial-char-container">
+        <div class="spacial-char-sec" id="spacial-char-sec-1"></div>
+        <div class="spacial-char-sec" id="spacial-char-sec-2"></div>
+        <div class="spacial-char-sec" id="spacial-char-sec-3"></div>
+      </div>
+    </div>
+    <div id="lower-container">
+      <div id="spacial-btn-container">
+        <div class="spacial-btn-sec" id="spacial-btn-sec-1">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+              00
+            </text>
+          </svg>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+              11
+            </text>
+          </svg>
+
+          <!-- caps -->
+          <svg id="caps" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+            <path
+              d="M30.0574 23.1031L29.9379 22.9637L20.9066 12.5711C20.6012 12.2191 20.143 12 19.6316 12C19.1203 12 18.6621 12.2258 18.3566 12.5711L9.33203 22.9437L9.1793 23.1164C9.06641 23.2824 9 23.4816 9 23.6941C9 24.2719 9.49141 24.7434 10.1023 24.7434H29.1477C29.7586 24.7434 30.25 24.2719 30.25 23.6941C30.25 23.475 30.177 23.2691 30.0574 23.1031Z"
+              fill="black" />
+          </svg>
+
+          <!-- backspace -->
+          <svg id="backspace" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+            <path
+              d="M30.75 9H13.875C13.0988 9 12.4856 9.38889 12.0806 9.97778L6 18.9944L12.0806 28.0111C12.4856 28.6 13.0988 29 13.875 29H30.75C31.9931 29 33 28.0056 33 26.7778V11.2222C33 9.99444 31.9931 9 30.75 9ZM27.375 22.9833L25.7831 24.5556L21.75 20.5722L17.7169 24.5556L16.125 22.9833L20.1581 19L16.125 15.0167L17.7169 13.4444L21.75 17.4278L25.7831 13.4444L27.375 15.0167L23.3419 19L27.375 22.9833Z"
+              fill="black" />
+          </svg>
+          <!-- enter -->
+          <svg id="enter" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+            <path
+              d="M32.3634 19.3822L9.98835 8.13223C8.86335 7.63223 7.61335 8.63223 8.11335 9.75723L11.2384 18.1322L25.4884 20.5072L11.2384 22.8822L8.11335 31.2572C7.73835 32.3822 8.86335 33.3822 9.98835 32.7572L32.3634 21.5072C33.2384 21.1322 33.2384 19.8822 32.3634 19.3822Z"
+              fill="black" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="input-container">
+    <!-- <p class="input" tabindex="0"></p> -->
+    <div class="input" tabindex="0">
+      <p></p>
+    </div>
+  </div>
+
+  <svg class="node" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black"></text>
+  </svg>
+
+  <script>
+
+    function removeSpace(string) {
+      let result = "";
+
+      for (let i = 0; i < string.length; i++) {
+        if (string[i] != " ") {
+          result += string[i];
+        }
+      }
+      console.log(result);
+      return result;
+    }
+
+
+
+    // container
+    let upperContainer = document.querySelector("#upper-container");
+    let alphabaticContainer = document.querySelector("#alphabatic-container");
+    let specialCharContainer = document.querySelector(
+      "#spacial-char-container"
+    );
+    // let specialBtnContainer = document.querySelector(
+    //   "#spacial-btn-container"
+    // );
+
+    let keyboardArr = [
+      upperContainer,
+      alphabaticContainer,
+      specialCharContainer,
+    ];
+
+    // console.log(keyboardArr);
+
+    function keyboardContainerSwiper(mainContainer) {
+      let touchStartX = 0,
+        touchStartY = 0,
+        touchEndX = 0,
+        touchEndY = 0,
+        slideIdx = 0;
+
+      let container = mainContainer.children;
+
+      // console.log(container);
+
+      function cordinateFn(e) {
+        let touchX = parseInt(
+          e.changedTouches[0].clientX - upperContainer.offsetLeft
+        );
+        let touchY = parseInt(
+          e.changedTouches[0].clientY - upperContainer.offsetTop
+        );
+
+        // console.log(touchStartX, touchStartY);
+        return {
+          touchX,
+          touchY,
+        };
+      }
+
+      function rightSwipeFn() {
+        container[slideIdx].style.transform = `translateX(0px)`;
+        // container[slideIdx].style.opacity = `0`;
+        if (slideIdx < container.length - 1) slideIdx++;
+        container[slideIdx].style.transform = `translateX(-${slideIdx * 100
+          }%)`;
+        // container[slideIdx].style.opacity = `1`;
+      }
+
+      function leftSwipeFn() {
+        container[slideIdx].style.transform = `translateX(0px)`;
+        // container[slideIdx].style.opacity = `0`;
+        if (slideIdx > 0) slideIdx--;
+        container[slideIdx].style.transform = `translateX(-${slideIdx * 100
+          }%)`;
+        // container[slideIdx].style.opacity = `1`;
+      }
+
+      mainContainer.addEventListener(
+        "touchstart",
+        (e) => {
+          let cordinate = cordinateFn(e);
+
+          touchStartX = cordinate.touchX;
+          touchStartY = cordinate.touchY;
+          // console.log(cordinate);
+        },
+        { passive: true }
+      );
+
+      mainContainer.addEventListener(
+        "touchend",
+        (e) => {
+          let cordinate = cordinateFn(e);
+          touchEndX = cordinate.touchX;
+          touchEndY = cordinate.touchY;
+          // console.log("final", touchStartX, touchEndX, touchStartY, touchEndY);
+          findingTouchWay();
+        },
+        { passive: true }
+      );
+
+      function findingTouchWay() {
+        if (touchEndX != touchStartX) {
+          if (touchEndX > touchStartX) {
+            leftSwipeFn();
+          } else {
+            rightSwipeFn();
+          }
+        }
+      }
+    }
+
+
+    for (let i = 0; i < keyboardArr.length; i++) {
+      keyboardContainerSwiper(keyboardArr[i]);
+    }
+
+    // alphabatic keys 
+
+    let node = document.querySelector(".node");
+
+    // console.log(node, alphabaticContainer.children);
+
+    let keyboardAlphabaticStr = "ABCDEFWXYZPQRSMNOIJKLGHTUV";
+    let keyboardAlphabaticSec = document.querySelector("#alphabatic-sec-1");
+
+    for (let i = 0; i < keyboardAlphabaticStr.length; i++) {
+      let element = node.cloneNode(true);
+      element.children[1].innerHTML = keyboardAlphabaticStr[i];
+      keyboardAlphabaticSec.appendChild(element);
+      if ((i + 1) % 5 == 0) {
+        keyboardAlphabaticSec = document.querySelector(
+          `#alphabatic-sec-${(i + 1) / 5 + 1}`
+        );
+      }
+    }
+
+    // special character keys
+    let keyboardSpecialCharStr = `()+-=.,'ˉΣπ*÷Φ^`;
+    let keyboardSpecialCharSec = document.querySelector(
+      "#spacial-char-sec-1"
+    );
+
+    for (let i = 0; i < keyboardSpecialCharStr.length; i++) {
+      let element = node.cloneNode(true);
+      element.children[1].innerHTML = keyboardSpecialCharStr[i];
+      keyboardSpecialCharSec.appendChild(element);
+      if ((i + 1) % 5 == 0) {
+        keyboardSpecialCharSec = document.querySelector(
+          `#spacial-char-sec-${(i + 1) / 5 + 1}`
+        );
+      }
+    }
+
+    node.style.display = "none";
+
+
+
+
+
+
+    // function backspaceFn(currInput) {
+    //   let val = currInput.innerHTML || ''
+    //   val = val.slice(0, val.length - 1)
+    //   currInput.innerHTML = val;
+    //   return;
+    // }
+
+    function backspaceFn(val = '') {
+      return val.slice(0, val.length - 1)
+    }
+
+    function capsFn() {
+      let alphabaticSvg = document.querySelectorAll('#alphabatic-container svg');
+      if (alphabaticSvg[0].children[1].innerHTML == 'A') {
+        for (let i = 0; i < alphabaticSvg.length; i++) {
+          alphabaticSvg[i].children[1].innerHTML = keyboardAlphabaticStr[i].toLowerCase();
+        }
+      }
+      else {
+        for (let i = 0; i < alphabaticSvg.length; i++) {
+          alphabaticSvg[i].children[1].innerHTML = keyboardAlphabaticStr[i].toUpperCase();
+        }
+      }
+    }
+
+
+    let capsKey = document.querySelector('#caps')
+    let backspaceKey = document.querySelector('#backspace')
+    let capsKeyFlage = false;
+
+    capsKey.addEventListener('click', () => {
+      alphabaticContainer.classList.toggle('text-transform')
+    });
+
+
+
+    // custom input tag
+
+
+    // on click at keys function 
+    let svgs = document.querySelectorAll("#keyboard svg");
+
+    let inputTags = document.querySelectorAll('.input')
+    let currInput = inputTags[0]
+
+
+    for (let i = 0; i < svgs.length; i++) {
+      svgs[i].addEventListener("click", (e) => {
+        // let val = svgs[i].children[1].innerHTML;
+        currInput.children[0].innerHTML += (svgs[i].children[1].innerHTML).trim();
+      });
+    }
+
+    // console.log(inputTags);
+    let keyboard = document.querySelector('#keyboard');
+
+    for (let i = 0; i < inputTags.length; i++) {
+      inputTags[i].addEventListener('click', (e) => {
+        currInput = inputTags[i];
+        keyboard.classList.toggle('keyboard-focus')
+      })
+    }
+
+    // backspace event lisener
+    backspaceKey.addEventListener('click', () => {
+      currInput.innerHTML = backspaceFn(currInput.innerHTML);
+    });
+
+  </script>
+</body>
+
+</html>

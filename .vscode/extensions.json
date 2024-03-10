@@ -3,11 +3,13 @@
     "formulahendry.auto-close-tag",
     "formulahendry.auto-rename-tag",
     "ecmel.vscode-html-css",
-    "ritwickdey.LiveServer",
-    "xabikos.JavaScriptSnippets",
+    "ritwickdey.liveserver",
+    "xabikos.javascriptsnippets",
     "ms-vscode.vscode-typescript-next",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "formulahendry.code-runner"
+    "formulahendry.code-runner",
+    "tabnine.tabnine-vscode",
+    "PKief.material-icon-theme"
   ]
 }

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .other-conversion-container {
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      /* gap: 10px; */
+    }
+
+    .val-box,
+    .explanation-answer-box {
+      background-color: rgb(206 206 206);
+      border-radius: 10px;
+      height: 50px;
+      width: 100%;
+      white-space: nowrap;
+      overflow-x: auto;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 5px 10px;
+    }
+
+    .val-box {
+      margin: 5px 0px;
+    }
+
+    .val-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .explanation-answer-box {
+      background-color: rgb(209, 160, 255);
+      width: 50%;
+      margin: 10px 0px;
+    }
+
+    .detail-box-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 5px 7vw;
+    }
+
+    .detail-box .detail-component-box {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bolder;
+      width: 100%;
+      align-items: center;
+      font-size: large;
+      border-bottom: 1px solid black;
+      line-height: 2;
+    }
+
+    .detail-box .detail-btn {
+      font-size: 25px;
+    }
+
+    .detail-box .detail-summary-box {
+      display: none;
+      padding: 5px 0px;
+    }
+
+    .summary-active {
+      display: block !important;
+    }
+
+
+
+
+    /* table  */
+
+    td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    tbody {
+      width: 20%;
+    }
+
+    tr {
+      display: flex;
+      gap: 0px;
+      width: 100%;
+    }
+
+    #decimal-to-anybase-table tr td:first-child {
+      border-left: 0px;
+    }
+
+    #decimal-to-anybase-table tr td:last-child {
+      border-right: 0px;
+    }
+
+    #decimal-to-anybase-table tr:first-child td {
+      border-top: 0px;
+    }
+
+    #decimal-to-anybase-table tr:last-child td {
+      border-bottom: 0px;
+    }
+
+    #decimal-to-anybase-afterpoint span {
+      color: red;
+    }
+
+    #decimal-to-anybase-wrapper-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #before-decimal {
+      width: 50%;
+      margin: 10px 0px;
+    }
+
+    #before-decimal>p,
+    #after-decimal>p {
+      margin: 5px 0px;
+      font-weight: bold;
+
+    }
+
+
+    @media screen and (max-width: 300px) {
+
+      #decimal-to-anybase-wrapper-container {
+        flex-direction: column;
+        align-items: start;
+      }
+
+    }
+
+    .coming-very-soon {
+      background-color: #d1d5db;
+      border-radius: 10px;
+      display: flex;
+      margin: 10px 0px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 60%;
+    }
+
+    .coming-very-soon>p {
+      font-size: 3rem;
+      font-weight: bolder;
+      margin: 10px 0px;
+      color: #9f70fd;
+
+    }
+
+    .coming-very-soon>p>span {
+      color: #fdbf60;
+    }
+
+    @media only screen and (max-width: 450px) {
+      .coming-very-soon>p {
+        font-size: 2rem;
+      }
+
+      .coming-very-soon {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div style="display: none; ">
+    <div class="eval-conversion-container">
+
+      <div class="detail-box">
+        <!-- comp 1 -->
+
+        <div class="detail-component-box">
+          <p>Other Conversion</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <!-- comp 2 -->
+
+        <div class="detail-summary-box">
+          <div class="other-conversion-container">
+            <div class="val-container">
+              <label for="">Decimal</label>
+              <div class="val-box">
+                <p></p>
+              </div>
+            </div>
+            <div class="val-container">
+              <label for="">Hexa-Decimal</label>
+              <div class="val-box">
+                <p></p>
+              </div>
+            </div>
+            <div class="val-container">
+              <label for="">Binary</label>
+              <div class="val-box">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+                  ullam inventore expedita! Sequi optio molestiae tempora quibusdam
+                  quisquam maiores. Sed perspiciatis numquam facere iure porro
+                  repellat libero alias hic fugiat!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="detail-box">
+        <div class="detail-component-box">
+          <p>Explanation</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <div class="detail-summary-box">
+          <div class="detail-explanation-container">
+            <h3>Binary to Decimal</h3>
+            <div class="val-container">
+              <!-- <label for="">Product </label> -->
+              <div class="val-box">
+                <p></p>
+              </div>
+            </div>
+            <div class="val-container">
+              <!-- <label for="">Sum</label> -->
+              <div class="val-box">
+                <p></p>
+              </div>
+            </div>
+            <div class="explanation-answer-box">
+              <p></p>
+            </div>
+
+            <div>
+              <h3>Decimal → Octal </h3>
+              <div id="decimal-to-anybase-wrapper-container">
+                <div id="before-decimal">
+                  <p>Before Decimal </p>
+                  <div id="decimal-to-anybase-table">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>8</td>
+                          <td>8</td>
+                          <td> </td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>8</td>
+                          <td>8</td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>8</td>
+                          <td>8</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+
+                <div id="after-decimal">
+                  <p>After Decimal </p>
+                  <div id="decimal-to-anybase-afterpoint">
+                    <p>.75 * 8 = 1.23 = <span>1</span></p>
+                    <p>.75 * 8 = 1.23 = <span>8</span></p>
+                    <p>.75 * 8 = 1.23 = <span>24</span></p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="explanation-answer-box">
+                <p></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-box">
+        <div class="detail-component-box">
+          <p>Steps</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <div class="detail-summary-box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          delectus fuga nisi rerum inventore fugiat. Placeat libero repellat
+          ipsam maxime animi mollitia sed, pariatur sint temporibus laboriosam
+          error et accusantium.
+        </div>
+      </div>
+
+      <div class="detail-box">
+        <div class="detail-component-box">
+          <p>Rule</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <div class="detail-summary-box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          delectus fuga nisi rerum inventore fugiat. Placeat libero repellat
+          ipsam maxime animi mollitia sed, pariatur sint temporibus laboriosam
+          error et accusantium.
+        </div>
+      </div>
+
+      <div class="detail-box">
+        <div class="detail-component-box">
+          <p>Shortcut</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <div class="detail-summary-box">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          delectus fuga nisi rerum inventore fugiat. Placeat libero repellat
+          ipsam maxime animi mollitia sed, pariatur sint temporibus laboriosam
+          error et accusantium.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="eval-complement-container">
+
+      <div class="detail-box">
+        <!-- comp 1 -->
+
+        <div class="detail-component-box">
+          <p>Other Complement</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <!-- comp 2 -->
+
+        <div class="detail-summary-box">
+          <div>
+            <div class="val-container">
+              <label for="">9's Complement</label>
+              <div class="val-box">
+                <p></p>
+              </div>
+            </div>
+            <div class="val-container">
+              <label for="">10's Complement</label>
+              <div class="val-box">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="detail-box">
+        <!-- comp 1 -->
+
+        <div class="detail-component-box">
+          <p>Explanation</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <!-- comp 2 -->
+
+        <div class="detail-summary-box">
+          <div>
+            <h2>9's Complement </h2>
+            <p> n = 10, k = 2, x=17 </p>
+            <p><span><b>Formula :</b> </span> (n<sup>k</sup> -1 ) - x</p>
+            <p>(10<sup>2</sup>-1 ) - 17 = 88</p>
+            <br>
+            <h2>10's Complement </h2>
+            <p><span><b>Formula :</b> </span> n<sup>k</sup> - x</p>
+            <p>( 10<sup>2</sup> ) - 17 = 88</p>
+
+            <p>
+              <b>N</b> = Base <br>
+              <b>X</b> = Given Number <br>
+              <b>K</b> = Total digit of number <br>
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="detail-box">
+        <!-- comp 1 -->
+
+        <div class="detail-component-box">
+          <p>Formula</p>
+          <p class="detail-btn">+</p>
+        </div>
+        <!-- comp 2 -->
+
+        <div class="detail-summary-box">
+
+          <p><b>n's Complement : </b>n<sup>k</sup> - x</p>
+          <p><b>(n-1)'s Complement : </b>(n<sup>k</sup> -1 ) - x</p>
+          <p>
+            <b>N</b> = Base <br>
+            <b>X</b> = Given Number <br>
+            <b>K</b> = Total digit of number <br>
+          </p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="coming-very-soon">
+
+      <p>Coming <span>very</span> soon</p>
+    </div>
+  </div>
+
+
+  <div >
+
+  </div>
+
+
+  <script type="module" src="./test.js"></script>
+</body>
+
+</html>

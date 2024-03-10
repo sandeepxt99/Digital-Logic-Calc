@@ -4,7 +4,7 @@
     {
       "label": "Installing extensions...",
       "type": "shell",
-      "command": "code-server --install-extension formulahendry.auto-close-tag --install-extension formulahendry.auto-rename-tag --install-extension ecmel.vscode-html-css --install-extension ritwickdey.LiveServer --install-extension xabikos.JavaScriptSnippets --install-extension ms-vscode.vscode-typescript-next --install-extension dbaeumer.vscode-eslint --install-extension fesbenp.prettier-vscode --install-extension formulahendry.code-runner",
+      "command": "code-server --install-extension formulahendry.auto-close-tag --install-extension formulahendry.auto-rename-tag --install-extension ecmel.vscode-html-css --install-extension ritwickdey.LiveServer --install-extension xabikos.JavaScriptSnippets --install-extension ms-vscode.vscode-typescript-next --install-extension dbaeumer.vscode-eslint --install-extension esbenp.prettier-vscode --install-extension formulahendry.code-runner --install-extension TabNine.tabnine-vscode --install-extension PKief.material-icon-theme",
       "presentation": {
         "reveal": "always",
         "panel": "new"

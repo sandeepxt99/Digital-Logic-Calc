@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./remove-base-style.css" />
+  <link rel="stylesheet" href="./utils.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./media-style.css" />
+  <link rel="stylesheet" href="./keyboard.style.css" />
+  <link rel="stylesheet" href="./answer-expalnation.css" />
+  <title>Gate Calc</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1><span>G</span>ate</h1>
+      </div>
+      <div class="nav-list">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+          <div class="follow-container">
+            <button class="follow-btn">Follow</button>
+            <div class="follow-list">
+              <a href="#">Linkedin</a>
+              <a href="#">Github</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <div class="dark">
+        <!-- <p>Dark</p> -->
+      </div>
+      <div id="ham-container">
+        <div id="ham-one"></div>
+        <div id="ham-two"></div>
+        <div id="ham-three"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- main container -->
+    <section id="main-container">
+      <!-- left section -->
+      <div class="options-container">
+        <div class="options-inner-container">
+          <button>Conversion</button>
+          <button>Calculation</button>
+          <button>Complement</button>
+          <button>Floating</button>
+          <button>Canonical</button>
+          <button>Circuit</button>
+          <button>Simplify</button>
+        </div>
+      </div>
+
+      <!-- conversion -->
+
+      <div id="conversion">
+        <div class="conversion-inner-container">
+          <div>
+            <label for="value">Value</label>
+            <!-- <input type="text" id="value" /> -->
+            <div class="custom-input">
+              <p class="eval-conversion-main-val"></p>
+            </div>
+          </div>
+
+          <div class="from-to-container">
+            <div class="from input">
+              <label for="">From</label>
+
+              <div class="select-container">
+                <div class="select-box-1">
+                  <div id="select-box-2">
+                    <p class="para-selection eval-conversion-from"></p>
+                    <input type="number" class="input-selection eval-conversion-from-input" placeholder="10" />
+                  </div>
+                  <div class="select-list">
+                    <p id="input-value">Any base</p>
+                    <p id="binary">Binary</p>
+                    <p id="decimal">Decimal</p>
+                    <p id="grey">Grey</p>
+                    <p id="hexadecimal">Hexadecimal</p>
+                    <p id="octal">Octal</p>
+                  </div>
+                </div>
+                <p class="select-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 320 512">
+                    <path
+                      d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+                  </svg>
+                </p>
+              </div>
+            </div>
+
+            <svg id="swap" xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 448 512">
+              <path
+                d="M438.6 150.6c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.7 96 32 96C14.3 96 0 110.3 0 128s14.3 32 32 32l306.7 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96zm-333.3 352c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 416 416 416c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96z" />
+            </svg>
+
+            <div class="to input">
+              <label for="">To</label>
+              <div class="select-container">
+                <div class="select-box-1">
+                  <div id="select-box-2">
+                    <p class="para-selection eval-conversion-to"></p>
+                    <input type="number" class="input-selection eval-conversion-to-input" placeholder="10" />
+                  </div>
+                  <div class="select-list">
+                    <p id="input-value">Any base</p>
+                    <p id="binary">Binary</p>
+                    <p id="decimal">Decimal</p>
+                    <p id="grey">Grey</p>
+                    <p id="hexadecimal">Hexadecimal</p>
+                    <p id="octal">Octal</p>
+                  </div>
+                </div>
+                <p class="select-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 320 512">
+                    <path
+                      d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+                  </svg>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="btn-container">
+            <button class="eval-conversion-convert-btn">Convert</button>
+            <button class="explain-btn" id="conversion-eval-btn">Explanation</button>
+          </div>
+
+          <div class="answer">
+            <p class="eval-conversion-answer">12324.123</p>
+          </div>
+        </div>
+
+        <div class="detail-box-container eval-conversion-container">
+          <div class="detail-box">
+            <!-- comp 1 -->
+
+            <div class="detail-component-box">
+              <p>Other Conversion</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <!-- comp 2 -->
+
+            <div class="detail-summary-box">
+              <div class="other-conversion-container">
+                <div class="val-container">
+                  <label for="">Decimal</label>
+                  <div class="val-box">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="val-container">
+                  <label for="">Hexa-Decimal</label>
+                  <div class="val-box">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="val-container">
+                  <label for="">Binary</label>
+                  <div class="val-box">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Voluptatem ullam inventore expedita! Sequi optio molestiae
+                      tempora quibusdam quisquam maiores. Sed perspiciatis numquam
+                      facere iure porro repellat libero alias hic fugiat!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-box">
+            <div class="detail-component-box">
+              <p>Explanation</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <div class="detail-summary-box">
+              <div class="detail-explanation-container">
+                <h3>Binary to Decimal</h3>
+                <div class="val-container">
+                  <!-- <label for="">Product </label> -->
+                  <div class="val-box">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="val-container">
+                  <!-- <label for="">Sum</label> -->
+                  <div class="val-box">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="explanation-answer-box">
+                  <p></p>
+                </div>
+
+                <div>
+                  <h3>Decimal → Octal</h3>
+                  <div id="decimal-to-anybase-wrapper-container">
+                    <div id="before-decimal">
+                      <p>Before Decimal</p>
+                      <div id="decimal-to-anybase-table">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>8</td>
+                              <td>8</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>8</td>
+                              <td>8</td>
+                              <td>8</td>
+                            </tr>
+                            <tr>
+                              <td>8</td>
+                              <td>8</td>
+                              <td>8</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div id="after-decimal">
+                      <p>After Decimal</p>
+                      <div id="decimal-to-anybase-afterpoint">
+                        <p>.75 * 8 = 1.23 = <span>1</span></p>
+                        <p>.75 * 8 = 1.23 = <span>8</span></p>
+                        <p>.75 * 8 = 1.23 = <span>24</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="explanation-answer-box">
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-box">
+            <div class="detail-component-box">
+              <p>Shortcut</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <div class="detail-summary-box">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta delectus
+              fuga nisi rerum inventore fugiat. Placeat libero repellat ipsam maxime
+              animi mollitia sed, pariatur sint temporibus laboriosam error et
+              accusantium.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- calculation  -->
+
+      <section id="calculation">
+        <div class="calculation-container">
+          <div class="calculation-container-1">
+            <!-- <input type="text" name="" id="" /> -->
+            <div class="custom-input">
+              <p></p>
+            </div>
+            <svg id="swap-calculation" xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 448 512">
+              <path
+                d="M438.6 150.6c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.7 96 32 96C14.3 96 0 110.3 0 128s14.3 32 32 32l306.7 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96zm-333.3 352c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 416 416 416c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96z" />
+            </svg>
+            <!-- <input type="text" name="" id="" /> -->
+            <div class="custom-input">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="calculation-container-2">
+            <div class="calculation-inner-container-2">
+              <div id="calculation-container-select-box-1" class="custom-select-container">
+                <div class="custom-select-display-container">+</div>
+                <div class="custom-select-values">
+                  <p>+</p>
+                  <p>-</p>
+                  <p>*</p>
+                  <p>/</p>
+                </div>
+              </div>
+
+              <div id="calculation-container-select-box-2" class="custom-select-container">
+                <div class="custom-select-display-container">Auto</div>
+                <div class="custom-select-values">
+                  <p>Auto</p>
+                  <p>BCD</p>
+                  <p>Complement</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="calculation-btn-container">
+              <button>Clear</button>
+              <button>Calculate</button>
+              <button class="explain-btn">Explanation</button>
+            </div>
+
+            <div class="answer">
+              <p>12324.123</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- complement -->
+
+      <section id="complement">
+
+        <div class="complement-container">
+          <div class="complement-inner-container">
+            <div class="complement-container-1">
+              <label for="value">Value</label>
+              <!-- <input type="text" id="value" /> -->
+              <div class="custom-input">
+                <p></p>
+              </div>
+            </div>
+            <div class="complement-btn-container">
+              <input type="number" placeholder="15" id="" />
+              <button>Find</button>
+              <button class="explain-btn" id="complement-eval-btn">Explanation</button>
+            </div>
+            <div class="answer">
+              <p>12324.123</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-box-container eval-complement-container">
+          <div class="detail-box">
+            <!-- comp 1 -->
+
+            <div class="detail-component-box">
+              <p>Other Complement</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <!-- comp 2 -->
+
+            <div class="detail-summary-box">
+              <div>
+                <div class="val-container">
+                  <label for="">9's Complement</label>
+                  <div class="val-box">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="val-container">
+                  <label for="">10's Complement</label>
+                  <div class="val-box">
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-box">
+            <!-- comp 1 -->
+
+            <div class="detail-component-box">
+              <p>Explanation</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <!-- comp 2 -->
+
+            <div class="detail-summary-box">
+              <div>
+                <h2>9's Complement</h2>
+                <p>n = 10, k = 2, x=17</p>
+                <p>
+                  <span><b>Formula :</b> </span> (n<sup>k</sup> -1 ) - x
+                </p>
+                <p>(10<sup>2</sup>-1 ) - 17 = 88</p>
+                <br />
+                <h2>10's Complement</h2>
+                <p>
+                  <span><b>Formula :</b> </span> n<sup>k</sup> - x
+                </p>
+                <p>( 10<sup>2</sup> ) - 17 = 88</p>
+
+                <p>
+                  <b>N</b> = Base <br />
+                  <b>X</b> = Given Number <br />
+                  <b>K</b> = Total digit of number <br />
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="detail-box">
+            <!-- comp 1 -->
+
+            <div class="detail-component-box">
+              <p>Formula</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <!-- comp 2 -->
+
+            <div class="detail-summary-box">
+              <p><b>n's Complement : </b>n<sup>k</sup> - x</p>
+              <p><b>(n-1)'s Complement : </b>(n<sup>k</sup> -1 ) - x</p>
+              <p>
+                <b>N</b> = Base <br />
+                <b>X</b> = Given Number <br />
+                <b>K</b> = Total digit of number <br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- floating point  -->
+
+      <section id="floating">
+        <div class="floating-container">
+          <div class="floating-inner-container">
+            <div class="floating-container-1">
+              <label for="value">Value</label>
+              <!-- <input type="text" id="value" /> -->
+              <div class="custom-input">
+                <p></p>
+              </div>
+            </div>
+            <div class="floating-btn-container">
+              <!-- select box  -->
+
+              <div class="select-container">
+                <div class="select-box-1">
+                  <div id="select-box-2">
+                    <p class="para-selection"></p>
+                    <input type="number" class="input-selection" placeholder="10" />
+                  </div>
+                  <div class="select-list">
+                    <p id="auto">Auto</p>
+                    <p id="input-value">Number</p>
+                  </div>
+                </div>
+                <p class="select-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 320 512">
+                    <path
+                      d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+                  </svg>
+                </p>
+              </div>
+
+              <div class="floating-btn-container-1">
+                <button>Find</button>
+                <button class="explain-btn" id="floating-eval-btn">Explanation</button>
+              </div>
+            </div>
+            <div class="answer">
+              <p>12324.123</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- canonical form  -->
+
+      <section id="canonical">
+        <div class="canonical-container">
+          <!-- <div class="canonical-inner-container"> -->
+
+          <div class="canonical-container-1">
+            <label for="value">Value</label>
+            <!-- <input type="text" id="value" /> -->
+            <div class="custom-input">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="canonical-btn-container">
+            <button>Convert</button>
+            <button>Explanation</button>
+          </div>
+          <div class="answer">
+            <p>12324.123</p>
+          </div>
+
+          <!-- </div> -->
+        </div>
+      </section>
+
+      <!-- simplify expression -->
+
+      <section id="simplify">
+        <div class="simplify-container">
+          <div class="simplify-container-1">
+            <label for="value">Value</label>
+            <!-- <input type="text" id="value" /> -->
+            <div class="custom-input">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="simplify-btn-container">
+            <div class="custom-select-container">
+              <div class="custom-select-display-container">Select</div>
+              <div class="custom-select-values">
+                <p>Select</p>
+                <p>Unselect</p>
+              </div>
+            </div>
+            <button>Evaluate</button>
+            <button>Explanation</button>
+          </div>
+          <div class="answer">
+            <p>12324.123</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- design combinational circuit -->
+
+      <section id="circuit">
+        <div class="circuit-container">
+          <div class="circuit-container-1">
+            <label for="value">Value</label>
+            <!-- <input type="text" id="value" /> -->
+            <div class="custom-input">
+              <p></p>
+            </div>
+          </div>
+
+          <div class="circuit-btn-container">
+            <div class="simplify-btn-container">
+              <div class="custom-select-container">
+                <div class="custom-select-display-container">Auto</div>
+                <div class="custom-select-values">
+                  <p>Auto</p>
+                  <p>NAND</p>
+                  <p>NOR</p>
+                </div>
+              </div>
+              <button>Evaluate</button>
+              <button>Explanation</button>
+            </div>
+            <button>Design</button>
+            <button>Explanation</button>
+          </div>
+          <div class="answer">
+            <p>12324.123</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <div class="answer-explanation-container"></div>
+
+    <div id="keyboard-container">
+      <div id="keyboard">
+        <div id="upper-wrapper">
+          <div id="upper-container">
+            <div class="upper-sec" id="upper-sec-1">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  0
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  1
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  2
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  3
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  4
+                </text>
+              </svg>
+            </div>
+            <div class="upper-sec" id="upper-sec-2">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  5
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  6
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  7
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  8
+                </text>
+              </svg>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                  9
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div id="mid-container">
+          <div id="alphabatic-wrapper">
+            <div id="alphabatic-container">
+              <div class="alphabatic-sec" id="alphabatic-sec-1"></div>
+              <div class="alphabatic-sec" id="alphabatic-sec-2"></div>
+              <div class="alphabatic-sec" id="alphabatic-sec-3"></div>
+              <div class="alphabatic-sec" id="alphabatic-sec-4"></div>
+              <div class="alphabatic-sec" id="alphabatic-sec-5"></div>
+              <div class="alphabatic-sec" id="alphabatic-sec-6"></div>
+            </div>
+          </div>
+
+          <div id="spacial-char-wrapper">
+            <div id="spacial-char-container">
+              <div class="spacial-char-sec" id="spacial-char-sec-1"></div>
+              <div class="spacial-char-sec" id="spacial-char-sec-2"></div>
+              <div class="spacial-char-sec" id="spacial-char-sec-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="lower-wrapper">
+          <div id="lower-container">
+            <div id="spacial-btn-container">
+              <div class="spacial-btn-sec" id="spacial-btn-sec-1">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                    00
+                  </text>
+                </svg>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+                    11
+                  </text>
+                </svg>
+
+                <!-- caps -->
+                <svg id="caps" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                  <path
+                    d="M30.0574 23.1031L29.9379 22.9637L20.9066 12.5711C20.6012 12.2191 20.143 12 19.6316 12C19.1203 12 18.6621 12.2258 18.3566 12.5711L9.33203 22.9437L9.1793 23.1164C9.06641 23.2824 9 23.4816 9 23.6941C9 24.2719 9.49141 24.7434 10.1023 24.7434H29.1477C29.7586 24.7434 30.25 24.2719 30.25 23.6941C30.25 23.475 30.177 23.2691 30.0574 23.1031Z"
+                    fill="black" />
+                </svg>
+
+                <!-- backspace -->
+                <svg id="backspace" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                  <path
+                    d="M30.75 9H13.875C13.0988 9 12.4856 9.38889 12.0806 9.97778L6 18.9944L12.0806 28.0111C12.4856 28.6 13.0988 29 13.875 29H30.75C31.9931 29 33 28.0056 33 26.7778V11.2222C33 9.99444 31.9931 9 30.75 9ZM27.375 22.9833L25.7831 24.5556L21.75 20.5722L17.7169 24.5556L16.125 22.9833L20.1581 19L16.125 15.0167L17.7169 13.4444L21.75 17.4278L25.7831 13.4444L27.375 15.0167L23.3419 19L27.375 22.9833Z"
+                    fill="black" />
+                </svg>
+                <!-- enter -->
+                <svg id="enter" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+                  <path
+                    d="M32.3634 19.3822L9.98835 8.13223C8.86335 7.63223 7.61335 8.63223 8.11335 9.75723L11.2384 18.1322L25.4884 20.5072L11.2384 22.8822L8.11335 31.2572C7.73835 32.3822 8.86335 33.3822 9.98835 32.7572L32.3634 21.5072C33.2384 21.1322 33.2384 19.8822 32.3634 19.3822Z"
+                    fill="black" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <svg class="node" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black"></text>
+    </svg>
+  </main>
+
+  <footer>
+    @ reserved rights 2024
+    <!-- <iframe src="../test/one.html" frameborder="0" width="100%" height="200"></iframe> -->
+  </footer>
+
+  <!-- adding javascript files -->
+  <script src="./style.js"></script>
+  <script type="module" src="./script.js"></script>
+  <script type="module" src="./keyboard.style.js"></script>
+  <script type="module" src="./evaluation.js"></script>
+</body>
+
+</html>
+
+<template id="keyboard">
+  <div id="upper-container">
+    <div class="upper-sec" id="upper-sec-1">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          0
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          1
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          2
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          3
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          4
+        </text>
+      </svg>
+    </div>
+    <div class="upper-sec" id="upper-sec-2">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          5
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          6
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          7
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          8
+        </text>
+      </svg>
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+          9
+        </text>
+      </svg>
+    </div>
+  </div>
+  <div id="mid-container">
+    <div id="alphabatic-container">
+      <div class="alphabatic-sec" id="alphabatic-sec-1"></div>
+      <div class="alphabatic-sec" id="alphabatic-sec-2"></div>
+      <div class="alphabatic-sec" id="alphabatic-sec-3"></div>
+      <div class="alphabatic-sec" id="alphabatic-sec-4"></div>
+      <div class="alphabatic-sec" id="alphabatic-sec-5"></div>
+      <div class="alphabatic-sec" id="alphabatic-sec-6"></div>
+    </div>
+    <div id="spacial-char-container">
+      <div class="spacial-char-sec" id="spacial-char-sec-1"></div>
+      <div class="spacial-char-sec" id="spacial-char-sec-2"></div>
+      <div class="spacial-char-sec" id="spacial-char-sec-3"></div>
+    </div>
+  </div>
+  <div id="lower-container">
+    <div id="spacial-btn-container">
+      <div class="spacial-btn-sec" id="spacial-btn-sec-1">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            00
+          </text>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black">
+            11
+          </text>
+        </svg>
+
+        <!-- caps -->
+        <svg id="caps" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <path
+            d="M30.0574 23.1031L29.9379 22.9637L20.9066 12.5711C20.6012 12.2191 20.143 12 19.6316 12C19.1203 12 18.6621 12.2258 18.3566 12.5711L9.33203 22.9437L9.1793 23.1164C9.06641 23.2824 9 23.4816 9 23.6941C9 24.2719 9.49141 24.7434 10.1023 24.7434H29.1477C29.7586 24.7434 30.25 24.2719 30.25 23.6941C30.25 23.475 30.177 23.2691 30.0574 23.1031Z"
+            fill="black" />
+        </svg>
+
+        <!-- backspace -->
+        <svg id="backspace" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <path
+            d="M30.75 9H13.875C13.0988 9 12.4856 9.38889 12.0806 9.97778L6 18.9944L12.0806 28.0111C12.4856 28.6 13.0988 29 13.875 29H30.75C31.9931 29 33 28.0056 33 26.7778V11.2222C33 9.99444 31.9931 9 30.75 9ZM27.375 22.9833L25.7831 24.5556L21.75 20.5722L17.7169 24.5556L16.125 22.9833L20.1581 19L16.125 15.0167L17.7169 13.4444L21.75 17.4278L25.7831 13.4444L27.375 15.0167L23.3419 19L27.375 22.9833Z"
+            fill="black" />
+        </svg>
+        <!-- enter -->
+        <svg id="enter" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+          <path
+            d="M32.3634 19.3822L9.98835 8.13223C8.86335 7.63223 7.61335 8.63223 8.11335 9.75723L11.2384 18.1322L25.4884 20.5072L11.2384 22.8822L8.11335 31.2572C7.73835 32.3822 8.86335 33.3822 9.98835 32.7572L32.3634 21.5072C33.2384 21.1322 33.2384 19.8822 32.3634 19.3822Z"
+            fill="black" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template class="complement-template">
+  <div class="eval-complement-container">
+    <div class="detail-box">
+      <!-- comp 1 -->
+
+      <div class="detail-component-box">
+        <p>Other Complement</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <!-- comp 2 -->
+
+      <div class="detail-summary-box">
+        <div>
+          <div class="val-container">
+            <label for="">9's Complement</label>
+            <div class="val-box">
+              <p></p>
+            </div>
+          </div>
+          <div class="val-container">
+            <label for="">10's Complement</label>
+            <div class="val-box">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-box">
+      <!-- comp 1 -->
+
+      <div class="detail-component-box">
+        <p>Explanation</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <!-- comp 2 -->
+
+      <div class="detail-summary-box">
+        <div>
+          <h2>9's Complement</h2>
+          <p>n = 10, k = 2, x=17</p>
+          <p>
+            <span><b>Formula :</b> </span> (n<sup>k</sup> -1 ) - x
+          </p>
+          <p>(10<sup>2</sup>-1 ) - 17 = 88</p>
+          <br />
+          <h2>10's Complement</h2>
+          <p>
+            <span><b>Formula :</b> </span> n<sup>k</sup> - x
+          </p>
+          <p>( 10<sup>2</sup> ) - 17 = 88</p>
+
+          <p>
+            <b>N</b> = Base <br />
+            <b>X</b> = Given Number <br />
+            <b>K</b> = Total digit of number <br />
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="detail-box">
+      <!-- comp 1 -->
+
+      <div class="detail-component-box">
+        <p>Formula</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <!-- comp 2 -->
+
+      <div class="detail-summary-box">
+        <p><b>n's Complement : </b>n<sup>k</sup> - x</p>
+        <p><b>(n-1)'s Complement : </b>(n<sup>k</sup> -1 ) - x</p>
+        <p>
+          <b>N</b> = Base <br />
+          <b>X</b> = Given Number <br />
+          <b>K</b> = Total digit of number <br />
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template class="conversion-template">
+  <div class="eval-conversion-container">
+    <div class="detail-box">
+      <!-- comp 1 -->
+
+      <div class="detail-component-box">
+        <p>Other Conversion</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <!-- comp 2 -->
+
+      <div class="detail-summary-box">
+        <div class="other-conversion-container">
+          <div class="val-container">
+            <label for="">Decimal</label>
+            <div class="val-box">
+              <p></p>
+            </div>
+          </div>
+          <div class="val-container">
+            <label for="">Hexa-Decimal</label>
+            <div class="val-box">
+              <p></p>
+            </div>
+          </div>
+          <div class="val-container">
+            <label for="">Binary</label>
+            <div class="val-box">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem ullam inventore expedita! Sequi optio molestiae
+                tempora quibusdam quisquam maiores. Sed perspiciatis numquam
+                facere iure porro repellat libero alias hic fugiat!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-box">
+      <div class="detail-component-box">
+        <p>Explanation</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <div class="detail-summary-box">
+        <div class="detail-explanation-container">
+          <h3>Binary to Decimal</h3>
+          <div class="val-container">
+            <!-- <label for="">Product </label> -->
+            <div class="val-box">
+              <p></p>
+            </div>
+          </div>
+          <div class="val-container">
+            <!-- <label for="">Sum</label> -->
+            <div class="val-box">
+              <p></p>
+            </div>
+          </div>
+          <div class="explanation-answer-box">
+            <p></p>
+          </div>
+
+          <div>
+            <h3>Decimal → Octal</h3>
+            <div id="decimal-to-anybase-wrapper-container">
+              <div id="before-decimal">
+                <p>Before Decimal</p>
+                <div id="decimal-to-anybase-table">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>8</td>
+                        <td>8</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div id="after-decimal">
+                <p>After Decimal</p>
+                <div id="decimal-to-anybase-afterpoint">
+                  <p>.75 * 8 = 1.23 = <span>1</span></p>
+                  <p>.75 * 8 = 1.23 = <span>8</span></p>
+                  <p>.75 * 8 = 1.23 = <span>24</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="explanation-answer-box">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-box">
+      <div class="detail-component-box">
+        <p>Steps</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <div class="detail-summary-box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta delectus
+        fuga nisi rerum inventore fugiat. Placeat libero repellat ipsam maxime
+        animi mollitia sed, pariatur sint temporibus laboriosam error et
+        accusantium.
+      </div>
+    </div>
+
+    <div class="detail-box">
+      <div class="detail-component-box">
+        <p>Rule</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <div class="detail-summary-box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta delectus
+        fuga nisi rerum inventore fugiat. Placeat libero repellat ipsam maxime
+        animi mollitia sed, pariatur sint temporibus laboriosam error et
+        accusantium.
+      </div>
+    </div>
+
+    <div class="detail-box">
+      <div class="detail-component-box">
+        <p>Shortcut</p>
+        <p class="detail-btn">+</p>
+      </div>
+      <div class="detail-summary-box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta delectus
+        fuga nisi rerum inventore fugiat. Placeat libero repellat ipsam maxime
+        animi mollitia sed, pariatur sint temporibus laboriosam error et
+        accusantium.
+      </div>
+    </div>
+  </div>
+</template>
+
+<template class="val-container-templet">
+  <label for=""></label>
+  <div class="val-box">
+    <p>
+    </p>
+  </div>
+</template>
