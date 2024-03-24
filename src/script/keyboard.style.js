@@ -93,16 +93,14 @@ for (let i = 0; i < keyboardArr.length; i++) {
 
 // alphabatic keys
 
-let node = document.querySelector(".node");
-
-// console.log(node, alphabaticContainer.children);
+const node = document.querySelector(".node");
 
 let keyboardAlphabaticStr = "ABCDEFWXYZPQRSMNOIJKLGHTUV";
 let keyboardAlphabaticSec = document.querySelector("#alphabatic-sec-1");
 
 for (let i = 0; i < keyboardAlphabaticStr.length; i++) {
-  let element = node.cloneNode(true);
-  element.children[1].innerHTML = keyboardAlphabaticStr[i];
+  let element = node.content.cloneNode(true);
+  element.querySelector("text").innerHTML = keyboardAlphabaticStr[i];
   keyboardAlphabaticSec.appendChild(element);
   if ((i + 1) % 5 == 0) {
     keyboardAlphabaticSec = document.querySelector(
@@ -116,8 +114,8 @@ let keyboardSpecialCharStr = `()+-=.,'ˉΣπ*÷Φ^`;
 let keyboardSpecialCharSec = document.querySelector("#spacial-char-sec-1");
 
 for (let i = 0; i < keyboardSpecialCharStr.length; i++) {
-  let element = node.cloneNode(true);
-  element.children[1].innerHTML = keyboardSpecialCharStr[i];
+  let element = node.content.cloneNode(true);
+  element.querySelector("text").innerHTML = keyboardSpecialCharStr[i];
   keyboardSpecialCharSec.appendChild(element);
   if ((i + 1) % 5 == 0) {
     keyboardSpecialCharSec = document.querySelector(
@@ -125,8 +123,6 @@ for (let i = 0; i < keyboardSpecialCharStr.length; i++) {
     );
   }
 }
-
-node.style.display = "none";
 
 // function backspaceFn(currInput) {
 //   let val = currInput.innerHTML || ''
@@ -193,30 +189,16 @@ backspaceKey.addEventListener("click", () => {
   );
 });
 
-document.addEventListener("keydown", (e) => {
-  let keywordsStr = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234456789()+-=.,'ˉΣπ*÷Φ^`;
-  if (keywordsStr.includes(e.key)) {
-    currInput.children[0].innerHTML += e.key;
-  }
-  if (e.key == "Backspace") {
-    currInput.children[0].innerHTML = backspaceFn(
-      currInput.children[0].innerHTML
-    );
-  }
-});
-
-let upperWrapper = document.querySelector("#upper-wrapper");
-
-// console.log(upperWrapper);
-
-upperWrapper.addEventListener("click", (e) => {
-  // console.clear();
-  // console.log(
-  //   e.clientX,
-  //   e.clientY,
-  //   upperWrapper.offsetLeft,
-  //   upperWrapper.offsetTop
-  // );
-});
+// document.addEventListener("keydown", (e) => {
+//   let keywordsStr = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234456789()+-=.,'ˉΣπ*÷Φ^`;
+//   if (keywordsStr.includes(e.key)) {
+//     currInput.children[0].innerHTML += e.key;
+//   }
+//   if (e.key == "Backspace") {
+//     currInput.children[0].innerHTML = backspaceFn(
+//       currInput.children[0].innerHTML
+//     );
+//   }
+// });
 
 export { currInput, inputTags };

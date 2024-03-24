@@ -50,24 +50,15 @@ swapSvg.addEventListener("click", () => {
     from.innerHTML = to.innerHTML;
     to.innerHTML = temp;
   }
-
-
 });
 
-
-
-// explain btn 
-
-
-
-
-// details box functioning 
+// details box functioning
 
 function detailBox() {
   let detailBtn = document.querySelectorAll(".detail-btn");
   let detailSummaryBox = document.querySelectorAll(".detail-summary-box");
 
-  console.log('funciton', detailBtn);
+  console.log("funciton", detailBtn);
 
   for (let i = 0; i < detailBtn.length; i++) {
     detailBtn[i].addEventListener("click", () => {
@@ -75,6 +66,6 @@ function detailBox() {
       detailSummaryBox[i].classList.toggle("summary-active");
     });
   }
-
 }
 
+detailBox();

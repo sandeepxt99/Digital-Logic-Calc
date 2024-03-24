@@ -4,9 +4,11 @@ import {
   toCharacterValue as toCharacterValueUfn,
   toNumberValue as toNumberValueUfn,
   addZerosToValue as addZerosToValueUfn,
+  checkDecimalOrBcd,
 } from "./utilsFn.js";
 
 function anyBaseToDecimal(value, base) {
+  console.log(value, base, "anyBaseToDecimal");
   value = value.toUpperCase();
   let minusFlage = false;
   if (value[0] == "-") {
@@ -104,8 +106,69 @@ function anyBaseToAnyBase(value, fromBase, toBase) {
 
 // any base to any base shortcut
 
+// function anyBaseToAnyBaseShortcut(value, fromBase, toBase) {
+//   value = value.toUpperCase();
+
+//   let minusFlage = false;
+//   if (value[0] == "-") {
+//     minusFlage = true;
+//     value = value.slice(1);
+//   }
+
+//   fromBase = parseInt(fromBase);
+//   toBase = parseInt(toBase);
+//   let fromBit = findBitsUfn(fromBase);
+//   let toBit = findBitsUfn(toBase);
+
+//   if (fromBit == 0 || toBit == 0) return;
+
+//   let value2 = value;
+//   if (fromBase != 2) {
+//     value2 = "";
+//     for (let i = 0; i < value.length; i++) {
+//       if (value[i] == ".") value2 += ".";
+//       else {
+//         let temp = anyBaseToAnyBase(value[i], fromBase, 2);
+//         temp = addZerosToValueUfn(temp, fromBit - temp.length, -1);
+//         // console.log(temp);
+//         value2 += temp;
+//       }
+//     }
+//   }
+
+//   let i =
+//     value2.indexOf(".") == -1 ? value2.length - 1 : value2.indexOf(".") - 1;
+//   let j = i + 2,
+//     n = value2.length;
+
+//   let result = "";
+
+//   while (i >= 0) {
+//     let fromI = i - toBit + 1 >= 0 ? i - toBit + 1 : 0;
+//     let temp = value2.slice(fromI, i + 1);
+//     i -= toBit;
+//     result = anyBaseToAnyBase(temp, 2, toBase) + result;
+//   }
+
+//   if (j < n) result += ".";
+
+//   while (j <= n) {
+//     let temp = value2.slice(j, j + toBit);
+//     j = j + toBit;
+//     // console.log(temp);
+//     if (toBit - temp.length)
+//       temp = addZerosToValueUfn(temp, toBit - temp.length, 1);
+
+//     result += anyBaseToAnyBase(temp, 2, toBase);
+//   }
+
+//   if (minusFlage) result = "-" + result;
+//   return result;
+// }
+
 function anyBaseToAnyBaseShortcut(value, fromBase, toBase) {
   value = value.toUpperCase();
+  let htmlRenderValueArr = [] // for html 
 
   let minusFlage = false;
   if (value[0] == "-") {
@@ -118,7 +181,7 @@ function anyBaseToAnyBaseShortcut(value, fromBase, toBase) {
   let fromBit = findBitsUfn(fromBase);
   let toBit = findBitsUfn(toBase);
 
-  if (fromBit == 0 || toBit == 0) return;
+  if (fromBit == 0 || toBit == 0) return null;
 
   let value2 = value;
   if (fromBase != 2) {
@@ -130,6 +193,11 @@ function anyBaseToAnyBaseShortcut(value, fromBase, toBase) {
         temp = addZerosToValueUfn(temp, fromBit - temp.length, -1);
         // console.log(temp);
         value2 += temp;
+        let tmpObj = {
+          key: value[i],
+          value: temp
+        }
+        htmlRenderValueArr.push(tmpObj)
       }
     }
   }
@@ -141,11 +209,18 @@ function anyBaseToAnyBaseShortcut(value, fromBase, toBase) {
 
   let result = "";
 
+
   while (i >= 0) {
     let fromI = i - toBit + 1 >= 0 ? i - toBit + 1 : 0;
     let temp = value2.slice(fromI, i + 1);
     i -= toBit;
-    result = anyBaseToAnyBase(temp, 2, toBase) + result;
+    let temp_val_2 = anyBaseToAnyBase(temp, 2, toBase)
+
+    if (toBit - temp.length)
+      temp = addZerosToValueUfn(temp, toBit - temp.length, 0);
+
+    result = temp_val_2 + result;
+    if (fromBase == 2) htmlRenderValueArr.unshift({ key: temp, value: temp_val_2 });
   }
 
   if (j < n) result += ".";
@@ -157,52 +232,87 @@ function anyBaseToAnyBaseShortcut(value, fromBase, toBase) {
     if (toBit - temp.length)
       temp = addZerosToValueUfn(temp, toBit - temp.length, 1);
 
-    result += anyBaseToAnyBase(temp, 2, toBase);
+    let temp_val_2 = anyBaseToAnyBase(temp, 2, toBase)
+    result += temp_val_2;
+    if (fromBase == 2) htmlRenderValueArr.push({ key: temp, value: temp_val_2 });
+
   }
 
   if (minusFlage) result = "-" + result;
-  return result;
+
+  console.log(result, htmlRenderValueArr, 'at the end');
+
+
+  return { result, htmlRenderValueArr };
 }
 
 // any base to BCD
 
 function anyBaseToBcd(value, base) {
-  if (parseInt(base) != 10) value = anyBaseToDecimal(value, base); //
+  if (Number(base) != 10) value = anyBaseToDecimal(value, base); //
 
-  // value = value.toUpperCase();
-  // let i = value.indexOf(".") == -1 ? value.length - 1 : value.indexOf(".") - 1; // index of before decimal point
-  // let j = i + 2; // index of after decimal point
+  console.log(value);
+  let negativeFlage = value[0] == "-";
 
+  if (negativeFlage) value = value.slice(1);
   let result = "";
 
   for (let i = 0; i < value.length; i++) {
     if (value[i] == ".") result += ".";
     else {
       let tempResult = decimalToAnyBase(value[i], 2);
-      // console.log(tempResult);
       result += addZerosToValueUfn(tempResult, 4 - tempResult.length, -1);
     }
   }
 
-  return result;
+  return negativeFlage ? "-" + result : result;
 }
 
 // bcd to any base
 
 function bcdToAnyBase(value, base) {
-  // -000001000111
-  let result = "";
   let negativeFlage = value[0] == "-";
   if (negativeFlage) value = value.slice(1);
-  let i = value.length;
-  while (i > 0) {
-    let startIdx = i - 4 >= 0 ? i - 4 : 0;
-    result += anyBaseToDecimal(value.slice(startIdx, i), 2);
-    i -= 4;
+
+  let i = value.indexOf('.')
+  if (i == -1) i = value.length;
+  let j = value.length;
+  let result = ''
+  let temp = '', startIdx = 0;
+  while (j > i) {
+    startIdx = 0;
+    let flage = false;
+    if (j - 4 > i) startIdx = j - 4;
+    else {
+      startIdx = i + 1;
+      flage = true;
+    }
+    temp = anyBaseToAnyBase((addZerosToValueUfn(value.slice(startIdx, j), 4 - (j - startIdx), -1)), 2, base)
+    console.log(temp, 'temp');
+
+    if (flage) {
+      j = i;
+      result = `.${temp}` + result;
+    }
+    else {
+      j = startIdx
+      result = temp + result;
+    }
   }
-  result = reverseStringUfn(result);
-  if (negativeFlage) result = "-" + result;
-  return result;
+
+  console.log(result);
+
+  while (i > 0) {
+    startIdx = i - 4 >= 0 ? i - 4 : 0;
+    temp = anyBaseToAnyBase(addZerosToValueUfn(value.slice(startIdx, i), 4 - (i - startIdx), -1), 2, base);
+    i = startIdx;
+    console.log(temp, 'temp');
+
+    result = temp + result;
+  }
+
+  console.log(result);
+  return negativeFlage ? "-" + result : result;
 }
 
 // binary to grey
@@ -242,40 +352,6 @@ function greyToBinary(value, base) {
 
 // ************************************************* calculation ***************************************************************//
 
-// binary addition
-
-// function binaryAddition(val1, val2) {
-//   if (val1.length < val2.length) {
-//     val1 = addZerosToValueUfn(val1, val2.length - val1.length, -1);
-//   } else {
-//     val2 = addZerosToValueUfn(val2, val1.length - val2.length, -1);
-//   }
-
-//   console.log(val1, val2);
-
-//   let n = val1.length;
-//   let result = "";
-//   let carry = "0";
-//   for (let i = n - 1; i >= 0; i--) {
-//     if (carry == "1" && (val1[i] == val2[i]) == "1") {
-//       result += "1";
-//     } else if (carry == "0" && (val1[i] == val2[i]) == "1") {
-//       result += "0";
-//       carry = "1";
-//     } else if (carry == "1" && val1[i] != val2[i]) {
-//       result += "0";
-//       carry = "1";
-//     } else {
-//       result += "1";
-//       carry = "0";
-//     }
-//   }
-//   if (carry == "1") result += "1";
-//   result = reverseStringUfn(result);
-
-//   return result;
-// }
-
 function binaryAddition(val1, val2) {
   let decVal1 = anyBaseToDecimal(val1, 2);
   let decVal2 = anyBaseToDecimal(val2, 2);
@@ -290,7 +366,7 @@ function binaryAddition(val1, val2) {
 function binarySubtraction(val1, val2) {
   let decVal1 = anyBaseToDecimal(val1, 2);
   let decVal2 = anyBaseToDecimal(val2, 2);
-  let result = parseFloat(decVal2) - parseFloat(decVal1);
+  let result = parseFloat(decVal1) - parseFloat(decVal2);
   // console.log(result);
   result = decimalToAnyBase(`${result}`, 2);
   return result;
@@ -336,15 +412,9 @@ function binaryDemonstrativeMultiplication(val1, val2) {
 function binaryDivision(val1, val2) {
   let decVal1 = anyBaseToDecimal(val1, 2);
   let decVal2 = anyBaseToDecimal(val2, 2);
-  let quotient = parseFloat(decVal1) / parseFloat(decVal2);
-  let remainder = decVal1 - decVal2 * quotient;
-  // console.log(result);
-  remainder.toString().replace(".", "");
-  quotient = decimalToAnyBase(`${quotient}`, 2);
-  remainder = decimalToAnyBase(`${remainder}`, 2);
-
-  console.log(quotient, remainder);
-  // return result;
+  let quotient = Number(decVal1) / Number(decVal2);
+  quotient = decimalToAnyBase(`${quotient}`, 2) || '';
+  return quotient;
 }
 
 // binary demonstration division
@@ -393,212 +463,130 @@ function complement(value, base) {
   base = parseInt(base);
   let bits = value.length;
   value = anyBaseToDecimal(value, base);
-  // base - 1
-
+  // base 
   let baseComp = base ** bits - value;
-
+  // base -1 
   let baseMinusOneComp = baseComp - 1;
-
-  // console.log(baseComp, baseMinusOneComp);
-
   baseComp = decimalToAnyBase(baseComp, base);
   baseMinusOneComp = decimalToAnyBase(baseMinusOneComp, base);
+
+  baseMinusOneComp = addZerosToValueUfn(baseMinusOneComp, bits - baseMinusOneComp.length, -1)
+  baseComp = addZerosToValueUfn(baseComp, bits - baseComp.length, -1)
   return [baseMinusOneComp, baseComp];
 }
 
 function subtractByComplement(val1, val2) {
-  let base = 10;
-  let complementArr = complement(val1, base);
-  let bits = val1.length;
+  let base = 2;
+  base = checkDecimalOrBcd(val1) ? 10 : 2;
+  if (base == 2) base = checkDecimalOrBcd(val2) ? 10 : 2;
+
+  // console.log('base', base);
+
+  let k = val1.length > val2.length ? val1.length : val2.length
+
+  val2 = addZerosToValueUfn(val2, k - val2.length, -1)
+  console.log(val1, val2);
+  let complementArr = complement(val2, base);
 
   let comp1 = complementArr[0],
     comp2 = complementArr[1];
 
   // console.log(comp1, comp2);
 
-  let res1 = parseInt(val2) + parseInt(comp1);
-  res1 = res1.toString();
-  // console.log(res1, complementArr);
+  let add_1 = '', carry = '', res_1 = ''
 
-  // n-1
-  if (bits == res1.length) {
-    res1 = "-" + complement(res1, base)[0];
-  } else {
-    let temp = res1.slice(0, 1);
-    res1 = parseInt(temp) + parseInt(res1.slice(1));
+  if (base == 10) add_1 = `${Number(comp1) + Number(val1)}`  // decimal 
+  else if (base == 2) add_1 = binaryAddition(comp1, val1) // binary 
+
+  add_1 = addZerosToValueUfn(add_1, k - add_1.length, -1)
+  if (k < add_1.length) {
+    carry = add_1[0]
+    add_1 = add_1.slice(1)
   }
 
-  // n
+  if (carry) {
+    if (base == 10) res_1 = `${Number(carry) + Number(add_1)}`
+    else if (base == 2) res_1 = binaryAddition(carry, add_1)
+  }
+  else {
+    res_1 = '-' + complement(add_1, base)[0]
+  }
+  // handling n complement 
 
-  let res2 = parseInt(val2) + parseInt(comp2);
-  res2 = res2.toString();
+  let add_2 = '', carry2 = '', res_2 = ''
+  if (base == 10) add_2 = `${Number(comp2) + Number(val1)}`
+  else if (base == 2) add_2 = binaryAddition(comp2, val1);
 
-  if (bits == res2.length) {
-    res2 = "-" + complement(res2, base)[1];
-  } else {
-    res2 = res2.slice(1);
+  add_2 = addZerosToValueUfn(add_2, k - add_2.length, -1)
+  if (k < add_2.length) {
+    carry2 = add_2[0];
+    add_2 = add_2.slice(1)
   }
 
-  // console.log(res1, res2);
-}
-
-function subtractByComplement2(val1, val2) {
-  let base = 2;
-  let complementArr = complement(val1, base);
-  let bits = val1.length;
-
-  // console.log(complementArr, bits);
-
-  let comp1 = complementArr[0],
-    comp2 = complementArr[1];
-
-  console.log(comp1, comp2);
-
-  // n-1
-
-  let res1 = binaryAddition(comp1, val2);
-  // console.log(res1);
-
-  if (bits == res1.length) {
-    res1 = "-" + complement(res1, base)[0];
-  } else {
-    let temp = res1.slice(0, 1);
-    res1 = binaryAddition(temp, res1.slice(1));
+  if (carry2) {
+    res_2 = add_2
+  }
+  else {
+    res_2 = '-' + complement(add_2, base)[1]
   }
 
-  // n
-
-  let res2 = binaryAddition(comp2, val2);
-  // console.log(res2);
-  if (bits == res2.length) {
-    res2 = "-" + complement(res2, base)[1];
-  } else {
-    // console.log("why", res2.length);
-    res2 = res2.slice(1);
+  return {
+    base1: base - 1,
+    base2: base,
+    comp1,
+    comp2,
+    add_1,
+    add_2,
+    carry,
+    carry2,
+    res_1,
+    res_2
   }
-
-  // console.log("final answer ", res1, res2);
 }
 
 // ******************************** BCD ********************************//
 
 function bcdAddition(val1, val2) {
-  let flage = false;
-  for (let i = 0; i < val1.length; i++) {
-    if (val1[i] == ".") continue;
-    if (val1[i] != "0" && val1[i] != "1") {
-      flage = true;
-      break;
-    }
-  }
-  for (let i = 0; i < val2.length; i++) {
-    if (val2[i] == ".") continue;
-    if (val2[i] != "0" && val2[i] != "1") {
-      flage = true;
-      break;
-    }
-  }
-  if (flage == true) {
-    console.log("Invalid Input");
-    val1 = anyBaseToBcd(val1, "10");
-    val2 = anyBaseToBcd(val2, "10");
+  let decimalFlage = false;
 
-    // return;
+  decimalFlage = checkDecimalOrBcd(val1)
+  if (!decimalFlage) decimalFlage = checkDecimalOrBcd(val2)
+
+  if (!decimalFlage) {
+    val1 = bcdToAnyBase(val1, 10);
+    val2 = bcdToAnyBase(val2, 10);
   }
 
-  // console.log(val1, val2);
+  // val1 & val2 are decimal
 
-  // actual code start here
+  console.log(val1, val2);
 
-  let arrVal1 = [],
-    arrVal2 = [];
+  let result = Number(val1) + Number(val2);
 
-  for (let i = val1.length; i > 0; ) {
-    let temp = val1.slice(i - 4 < 0 ? 0 : i - 4, i);
-    if (temp.length < 4) temp = addZerosToValueUfn(temp, 4 - temp.length, -1);
-    // console.log("temp: ", temp);
-    arrVal1.push(temp);
-    i -= 4;
-  }
-  for (let i = val2.length; i > 0; ) {
-    let temp = val2.slice(i - 4 < 0 ? 0 : i - 4, i);
-    if (temp.length < 4) temp = addZerosToValueUfn(temp, 4 - temp.length, -1);
-    arrVal2.push(temp);
-    i -= 4;
-  }
+  result = anyBaseToBcd(`${result}`, 10);
 
-  arrVal1 = arrVal1.reverse();
-  arrVal2 = arrVal2.reverse();
-
-  let res1 = [],
-    arrFlage = [],
-    res2 = [];
-
-  let end = arrVal1.length > arrVal2.length ? arrVal1.length : arrVal2.length;
-
-  for (let i = 0; i < end; i++) {
-    let temp = binaryAddition(arrVal1[i], arrVal2[i]);
-    temp = addZerosToValueUfn(temp, 4 - temp.length, -1);
-    res1.push(temp);
-    if (parseInt(anyBaseToDecimal(temp, 2)) > 9) arrFlage.push(true);
-    else arrFlage.push(false);
-  }
-
-  for (let i = 0; i < arrFlage.length; i++) {
-    if (arrFlage[i] == true) res2.push("0110");
-    else res2.push("0000");
-  }
-
-  let str1 = "",
-    str2 = "";
-  for (let i = 0; i < arrFlage.length; i++) {
-    // finalRes.push(binaryAddition(res1[i], res2[i]));
-    str1 += res1[i];
-    str2 += res2[i];
-  }
-
-  let finalRes = binaryAddition(str1, str2);
-
-  let addingZeroBit = 4 - (finalRes.length % 4 == 0 ? 4 : finalRes.length % 4);
-
-  finalRes = addZerosToValueUfn(finalRes, addingZeroBit, -1);
-
-  // console.log("arr", arrVal1, arrVal2);
-  // console.log("main", res1, arrFlage, res2);
-  // console.log("final", finalRes);
+  return result;
 }
 
 // bcd subtraction
 function bcdSubtraction(val1, val2) {
   let decimalFlage = false;
 
-  for (let i = 0; i < val1.length; i++) {
-    if (val1[i] == ".") continue;
-    if (val1[i] != "1" && val1[i] != "0") {
-      decimalFlage = true;
-      break;
-    }
-  }
-
-  for (let i = 0; i < val2.length; i++) {
-    if (val1[i] == ".") continue;
-    if (val2[i] != "1" && val2[i] != "0") {
-      decimalFlage = true;
-      break;
-    }
-  }
+  decimalFlage = checkDecimalOrBcd(val1)
+  if (!decimalFlage) decimalFlage = checkDecimalOrBcd(val2)
 
   if (!decimalFlage) {
     val1 = bcdToAnyBase(val1, 10);
     val2 = bcdToAnyBase(val2, 10);
   }
-  console.log(val1, val2);
 
-  let res = parseFloat(val2) - parseFloat(val1);
-  let negativeFlage = res < 0 ? true : false;
-  res = anyBaseToBcd(`${Math.abs(res)}`, 10);
-  if (negativeFlage) res = "-" + res;
-  return res;
+  // val1 & val2 are decimal
+
+  let result = Number(val1) - Number(val2);
+
+  result = anyBaseToBcd(`${result}`, 10);
+
+  return result;
 }
 
 // ******************************** Floating  ********************************//
@@ -645,4 +633,18 @@ function floating(val, num) {
   return val;
 }
 
-export { anyBaseToAnyBase };
+export {
+  anyBaseToAnyBase,
+  anyBaseToAnyBaseShortcut,
+  complement,
+  binaryAddition,
+  binarySubtraction,
+  binaryMultiplication,
+  binaryDivision,
+  bcdAddition,
+  bcdSubtraction,
+  subtractByComplement,
+  anyBaseToBcd
+};
+
+// prev = 733 

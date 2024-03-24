@@ -497,33 +497,13 @@ header nav {
   position: relative;
 }
 
-/* #keyboard {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  /* padding-left: 7vw; */
-/* } */
+/* answer explanation  */
 
-/* .keyboard-each-row {
-  display: none;
-  justify-content: space-evenly;
-  gap: 5px;
-  position: relative;
-  top: -30px;
-  left: 5px;
-  width: 95%;
-  background: #9f70fd;
-  border-radius: 5px;
-  align-items: center;
-  height: 70px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.keyboard-each-row-after {
+.explain-btn-active {
   display: flex;
 }
 
-.keyboard-temp-svg-style {
+.detail-box-container,
+.eval-conversion-container {
   display: none;
-} */
+}

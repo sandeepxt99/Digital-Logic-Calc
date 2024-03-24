@@ -51,7 +51,11 @@ function conversionEvaluationFn() {
       tempToBase = baseObj[evalConversionTo];
     }
 
+    console.log(mainVal, tempFromBase, tempToBase);
+
     let result = anyBaseToAnyBase(mainVal, tempFromBase, tempToBase);
+
+    // console.log("actual result", result);
 
     conversionAnswer.innerHTML = result;
 
@@ -59,23 +63,7 @@ function conversionEvaluationFn() {
 
     document.querySelector(".eval-conversion-from-input").value = "";
     document.querySelector(".eval-conversion-to-input").value = "";
-
-    console.log(document.querySelector('.val-container-templet'))
   });
 }
 
 conversionEvaluationFn();
-
-
-
-function x(val, from, to) {
-  let baseArr = [2, 8, 10, 16]
-
-  for (let i = 0; i < baseArr.length; i++) {
-    if (baseArr[i] != val) {
-      let tempval = anyBaseToAnyBase(val, from, to)
-    }
-  }
-
-
-}

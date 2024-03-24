@@ -8,5 +8,5 @@
   "files.autoSave": "off",
   "editor.minimap.autohide": true,
    "editor.minimap.renderCharacters": false,
-   "editor.wordWrap": "on"
+   "editor.wordWrap": "on",
 }

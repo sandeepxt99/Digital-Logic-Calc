@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./remove-base-style.css" />
-  <link rel="stylesheet" href="./utils.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./media-style.css" />
-  <link rel="stylesheet" href="./keyboard.style.css" />
-  <link rel="stylesheet" href="./answer-expalnation.css" />
+  <link rel="stylesheet" href="./style/remove-base-style.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="stylesheet" href="./style/media-style.css" />
+  <link rel="stylesheet" href="./style/utils.css" />
+  <link rel="stylesheet" href="./style/keyboard.style.css" />
+  <link rel="stylesheet" href="./style/answer-expalnation.css" />
   <title>Gate Calc</title>
 </head>
 
@@ -135,11 +135,13 @@
 
           <div id="btn-container">
             <button class="eval-conversion-convert-btn">Convert</button>
-            <button class="explain-btn" id="conversion-eval-btn">Explanation</button>
+            <button class="explain-btn" id="conversion-eval-btn">
+              Explanation
+            </button>
           </div>
 
           <div class="answer">
-            <p class="eval-conversion-answer">12324.123</p>
+            <p class="eval-conversion-answer"></p>
           </div>
         </div>
 
@@ -154,31 +156,7 @@
             <!-- comp 2 -->
 
             <div class="detail-summary-box">
-              <div class="other-conversion-container">
-                <div class="val-container">
-                  <label for="">Decimal</label>
-                  <div class="val-box">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="val-container">
-                  <label for="">Hexa-Decimal</label>
-                  <div class="val-box">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="val-container">
-                  <label for="">Binary</label>
-                  <div class="val-box">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Voluptatem ullam inventore expedita! Sequi optio molestiae
-                      tempora quibusdam quisquam maiores. Sed perspiciatis numquam
-                      facere iure porro repellat libero alias hic fugiat!
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <div class="other-conversion-container"></div>
             </div>
           </div>
 
@@ -189,46 +167,34 @@
             </div>
             <div class="detail-summary-box">
               <div class="detail-explanation-container">
-                <h3>Binary to Decimal</h3>
-                <div class="val-container">
-                  <!-- <label for="">Product </label> -->
-                  <div class="val-box">
-                    <p></p>
+
+                <div id="eval-conversion-conversion-detail-box-1">
+                  <h2 id="head-anybase-decimal">Binary to Decimal</h2>
+                  <div class="val-container">
+                    <!-- <label for="">Product </label> -->
+                    <div class="val-box">
+                      <p class="answer-para"></p>
+                    </div>
                   </div>
-                </div>
-                <div class="val-container">
-                  <!-- <label for="">Sum</label> -->
-                  <div class="val-box">
-                    <p></p>
+                  <div class="val-container">
+                    <!-- <label for="">Sum</label> -->
+                    <div class="val-box">
+                      <p class="answer-para"></p>
+                    </div>
                   </div>
-                </div>
-                <div class="explanation-answer-box">
-                  <p></p>
+                  <div class="explanation-answer-box">
+                    <p class="answer-para"></p>
+                  </div>
                 </div>
 
-                <div>
-                  <h3>Decimal → Octal</h3>
+                <div id="eval-conversion-conversion-detail-box-2">
+                  <h2>Decimal to Octal</h2>
                   <div id="decimal-to-anybase-wrapper-container">
                     <div id="before-decimal">
                       <p>Before Decimal</p>
                       <div id="decimal-to-anybase-table">
                         <table>
                           <tbody>
-                            <tr>
-                              <td>8</td>
-                              <td>8</td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td>8</td>
-                              <td>8</td>
-                              <td>8</td>
-                            </tr>
-                            <tr>
-                              <td>8</td>
-                              <td>8</td>
-                              <td>8</td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -237,34 +203,38 @@
                     <div id="after-decimal">
                       <p>After Decimal</p>
                       <div id="decimal-to-anybase-afterpoint">
-                        <p>.75 * 8 = 1.23 = <span>1</span></p>
-                        <p>.75 * 8 = 1.23 = <span>8</span></p>
-                        <p>.75 * 8 = 1.23 = <span>24</span></p>
                       </div>
                     </div>
                   </div>
                   <div class="explanation-answer-box">
-                    <p></p>
+                    <p id="decimal-anybase-final-ans"></p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
 
-          <div class="detail-box">
+          <div class="detail-box" id="eval-conversion-shortcut-detail-box">
             <div class="detail-component-box">
               <p>Shortcut</p>
               <p class="detail-btn">+</p>
             </div>
             <div class="detail-summary-box">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta delectus
-              fuga nisi rerum inventore fugiat. Placeat libero repellat ipsam maxime
-              animi mollitia sed, pariatur sint temporibus laboriosam error et
-              accusantium.
+              <div>
+                <h2>Octal to Binary</h2>
+                <table id="conversion-shortcut-table">
+                  <tbody>
+                  </tbody>
+                </table>
+                <div class="explanation-answer-box">
+                  <p id="shortcut-anybase-final-ans"></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
 
       <!-- calculation  -->
@@ -274,22 +244,22 @@
           <div class="calculation-container-1">
             <!-- <input type="text" name="" id="" /> -->
             <div class="custom-input">
-              <p></p>
+              <p id="calc-value-1"></p>
             </div>
-            <svg id="swap-calculation" xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 448 512">
+            <svg id="swap-calculation" class="calc-swap" xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 448 512">
               <path
                 d="M438.6 150.6c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.7 96 32 96C14.3 96 0 110.3 0 128s14.3 32 32 32l306.7 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96zm-333.3 352c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 416 416 416c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96z" />
             </svg>
             <!-- <input type="text" name="" id="" /> -->
             <div class="custom-input">
-              <p></p>
+              <p id="calc-value-2"></p>
             </div>
           </div>
 
           <div class="calculation-container-2">
             <div class="calculation-inner-container-2">
               <div id="calculation-container-select-box-1" class="custom-select-container">
-                <div class="custom-select-display-container">+</div>
+                <div id="calc-operator" class="custom-select-display-container">+</div>
                 <div class="custom-select-values">
                   <p>+</p>
                   <p>-</p>
@@ -299,7 +269,7 @@
               </div>
 
               <div id="calculation-container-select-box-2" class="custom-select-container">
-                <div class="custom-select-display-container">Auto</div>
+                <div id="calc-function" class="custom-select-display-container">Auto</div>
                 <div class="custom-select-values">
                   <p>Auto</p>
                   <p>BCD</p>
@@ -309,93 +279,88 @@
             </div>
 
             <div class="calculation-btn-container">
-              <button>Clear</button>
-              <button>Calculate</button>
-              <button class="explain-btn">Explanation</button>
+              <button id="calc-clear-btn">Clear</button>
+              <button id="calc-calculate-btn">Calculate</button>
+              <button id="calc-explain-btn" class="explain-btn">Explaination</button>
             </div>
 
             <div class="answer">
-              <p>12324.123</p>
+              <p id="calc-final-answer-para">12324.123</p>
             </div>
           </div>
         </div>
+
+        <div id="calc-detail-box-container" class="detail-box-container">
+          <div class="detail-box">
+            <div class="detail-component-box">
+              <p>Other calculation</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <div id="calc-other-calculation-summary-container" class="detail-summary-box">
+            </div>
+          </div>
+          <div class="detail-box">
+            <div class="detail-component-box">
+              <p>Explaination</p>
+              <p class="detail-btn">+</p>
+            </div>
+            <div id="calc-explain-summary-container" class="detail-summary-box">
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <!-- complement -->
 
       <section id="complement">
-
         <div class="complement-container">
           <div class="complement-inner-container">
             <div class="complement-container-1">
               <label for="value">Value</label>
               <!-- <input type="text" id="value" /> -->
               <div class="custom-input">
-                <p></p>
+                <p id="comp-input-1"></p>
               </div>
             </div>
             <div class="complement-btn-container">
-              <input type="number" placeholder="15" id="" />
-              <button>Find</button>
-              <button class="explain-btn" id="complement-eval-btn">Explanation</button>
+              <input type="number" placeholder="15" id="comp-input-2" />
+              <button id="comp-find-btn">Find</button>
+              <button class="explain-btn" id="comp-explain-btn">
+                Explaination
+              </button>
             </div>
             <div class="answer">
-              <p>12324.123</p>
+              <p id="comp-final-answer-para">12324.123</p>
             </div>
           </div>
         </div>
 
-        <div class="detail-box-container eval-complement-container">
+        <div id="comp-detail-box-container" class="detail-box-container eval-complement-container">
           <div class="detail-box">
-            <!-- comp 1 -->
-
             <div class="detail-component-box">
               <p>Other Complement</p>
               <p class="detail-btn">+</p>
             </div>
-            <!-- comp 2 -->
-
-            <div class="detail-summary-box">
-              <div>
-                <div class="val-container">
-                  <label for="">9's Complement</label>
-                  <div class="val-box">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="val-container">
-                  <label for="">10's Complement</label>
-                  <div class="val-box">
-                    <p></p>
-                  </div>
-                </div>
-              </div>
+            <div class="detail-summary-box" id="complement-other-complement-box">
             </div>
           </div>
-          <div class="detail-box">
-            <!-- comp 1 -->
 
+          <div class="detail-box">
             <div class="detail-component-box">
               <p>Explanation</p>
               <p class="detail-btn">+</p>
             </div>
-            <!-- comp 2 -->
-
-            <div class="detail-summary-box">
+            <div class="detail-summary-box" id="complement-explanation-box">
               <div>
-                <h2>9's Complement</h2>
-                <p>n = 10, k = 2, x=17</p>
-                <p>
-                  <span><b>Formula :</b> </span> (n<sup>k</sup> -1 ) - x
-                </p>
-                <p>(10<sup>2</sup>-1 ) - 17 = 88</p>
+                <p class="manupulation-para"></p>
+                <h2><b class="manupulation-para"></b></h2>
+                <p><span><b>Formula :</b> </span> (n<sup>k</sup> -1 ) - x</p>
+                <p class="manupulation-para"></p>
                 <br />
-                <h2>10's Complement</h2>
-                <p>
-                  <span><b>Formula :</b> </span> n<sup>k</sup> - x
-                </p>
-                <p>( 10<sup>2</sup> ) - 17 = 88</p>
-
+                <h2><b class="manupulation-para"></b></h2>
+                <p><span><b>Formula :</b> </span> n<sup>k</sup> - x</p>
+                <p class="manupulation-para"></p>
                 <p>
                   <b>N</b> = Base <br />
                   <b>X</b> = Given Number <br />
@@ -404,15 +369,12 @@
               </div>
             </div>
           </div>
-          <div class="detail-box">
-            <!-- comp 1 -->
 
+          <div class="detail-box">
             <div class="detail-component-box">
-              <p>Formula</p>
+              <p>Formula </p>
               <p class="detail-btn">+</p>
             </div>
-            <!-- comp 2 -->
-
             <div class="detail-summary-box">
               <p><b>n's Complement : </b>n<sup>k</sup> - x</p>
               <p><b>(n-1)'s Complement : </b>(n<sup>k</sup> -1 ) - x</p>
@@ -423,8 +385,8 @@
               </p>
             </div>
           </div>
-        </div>
 
+        </div>
       </section>
 
       <!-- floating point  -->
@@ -463,7 +425,9 @@
 
               <div class="floating-btn-container-1">
                 <button>Find</button>
-                <button class="explain-btn" id="floating-eval-btn">Explanation</button>
+                <button class="explain-btn" id="floating-eval-btn">
+                  Explanation
+                </button>
               </div>
             </div>
             <div class="answer">
@@ -705,11 +669,6 @@
         </div>
       </div>
     </div>
-
-    <svg class="node" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="40" height="40" rx="5" fill="#D9D9D9" />
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black"></text>
-    </svg>
   </main>
 
   <footer>
@@ -718,13 +677,20 @@
   </footer>
 
   <!-- adding javascript files -->
-  <script src="./style.js"></script>
-  <script type="module" src="./script.js"></script>
-  <script type="module" src="./keyboard.style.js"></script>
-  <script type="module" src="./evaluation.js"></script>
+  <script type="module" src="./script/style.js"></script>
+  <script type="module" src="./script/script.js"></script>
+  <script type="module" src="./script/keyboard.style.js"></script>
+  <script type="module" src="./script/evaluation.js"></script>
 </body>
 
 </html>
+
+<template class="node">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="40" height="40" rx="5" fill="#D9D9D9" />
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black"></text>
+  </svg>
+</template>
 
 <template id="keyboard">
   <div id="upper-container">
@@ -851,7 +817,6 @@
   </div>
 </template>
 
-
 <template class="complement-template">
   <div class="eval-complement-container">
     <div class="detail-box">
@@ -934,7 +899,6 @@
   </div>
 </template>
 
-
 <template class="conversion-template">
   <div class="eval-conversion-container">
     <div class="detail-box">
@@ -986,17 +950,17 @@
           <div class="val-container">
             <!-- <label for="">Product </label> -->
             <div class="val-box">
-              <p></p>
+              <p class="answer-para"></p>
             </div>
           </div>
           <div class="val-container">
             <!-- <label for="">Sum</label> -->
             <div class="val-box">
-              <p></p>
+              <p class="answer-para"></p>
             </div>
           </div>
           <div class="explanation-answer-box">
-            <p></p>
+            <p class="answer-para"></p>
           </div>
 
           <div>
@@ -1007,21 +971,6 @@
                 <div id="decimal-to-anybase-table">
                   <table>
                     <tbody>
-                      <tr>
-                        <td>8</td>
-                        <td>8</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>8</td>
-                        <td>8</td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>8</td>
-                        <td>8</td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -1085,10 +1034,61 @@
   </div>
 </template>
 
-<template class="val-container-templet">
-  <label for=""></label>
-  <div class="val-box">
-    <p>
-    </p>
+
+<template id="val-container-templet">
+  <div class="val-container">
+    <label></label>
+    <div class="val-box">
+      <p></p>
+    </div>
   </div>
 </template>
+
+
+<template id="decimal-anybase-table-template">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</template>
+
+<template id="conversion-shortcut-table-template">
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+</template>
+
+
+<!-- no use right now  -->
+
+<template id="detail-box-template">
+  <div class="detail-box">
+    <div class="detail-component-box">
+      <p></p>
+      <p class="detail-btn">+</p>
+    </div>
+    <div class="detail-summary-box">
+    </div>
+  </div>
+</template>
+
+<template id="explain-answer-form-1" >
+  <div class="explain-answer-form-1" >  <!-- style in answer-explaination-style.css -->
+    <h2></h2>
+    <p></p>
+  </div>
+</template>
+
+<!-- 1081 at prettier -->
+
+
+
+<!-- naming convention list  -->
+<!-- 
+#finalAnswer ==  id ==> (calc-final-answer-para) 
+
+
+
+ -->

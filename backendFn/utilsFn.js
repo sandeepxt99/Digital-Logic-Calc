@@ -54,6 +54,7 @@ function toCharacterValue(value) {
   return `${String.fromCharCode(numValue)}`;
 }
 
+
 function toNumberValue(value) {
   value = value.toUpperCase();
 
@@ -83,14 +84,18 @@ function reverseString(str) {
   return resultStr;
 }
 
-// module.exports = {
-//   reverseString,
-//   findBits,
-//   removeZerosFromValue,
-//   toCharacterValue,
-//   toNumberValue,
-//   addZerosToValue,
-// };
+function checkDecimalOrBcd(value) {
+  let val = ''
+  for (let i = 0; i < value.length; i++) {
+    val = value.charAt(i);
+    if (val == '.' || val == ' ') continue
+    if (val != '0' && val != '1') return true
+  }
+  return false;
+}
+
+
+
 
 export {
   reverseString,
@@ -99,31 +104,7 @@ export {
   toCharacterValue,
   toNumberValue,
   addZerosToValue,
+  checkDecimalOrBcd,
 };
-// console.log(addZerosToValue("344", 4, 1));
-// console.log(addZerosToValue("344", 4, -1));
 
-// let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 16, 18];
-// for (let i = 0; i < arr.length; i++) {
-//   console.log(findBits(arr[i]));
-// }
 
-// let val = "01101.1100101";
-
-// let i = val.indexOf(".") == -1 ? val.length - 1 : val.indexOf(".") - 1; // index of before decimal point
-// let j = i + 2; // index of after decimal point
-// let n = val.length - 1;
-// let bit = 3;
-
-// while (i >= 0) {
-//   let fromI = i - bit + 1 >= 0 ? i - bit + 1 : 0;
-//   let temp = val.slice(fromI, i + 1);
-//   console.log(temp);
-//   i -= bit;
-// }
-
-// while (j <= n) {
-//   let temp = val.slice(j, j + bit);
-//   j = j + bit;
-//   console.log(temp);
-// }
